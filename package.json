@@ -1,0 +1,22 @@
+{
+  "name": "funny_flutter_server",
+  "version": "1.0.0",
+  "description": "Server of Funny Flutter App",
+  "bin": "bin/server.js",
+  "scripts": {
+    "start": "node bin/server.js",
+    "watch": "nodemon bin/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "true"
+  },
+  "author": "Forelax",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
