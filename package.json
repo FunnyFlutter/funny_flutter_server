@@ -5,11 +5,12 @@
   "bin": "bin/server.js",
   "scripts": {
     "start": "node bin/server.js",
-    "watch": "nodemon bin/server.js"
+    "watch": "nodemon bin/server.js",
+    "release": "pkg . --out-path dist/"
   },
   "repository": {
     "type": "git",
-    "url": "true"
+    "url": "git+git@github.com:ForelaxX/funny_flutter_server.git"
   },
   "author": "Forelax",
   "license": "ISC",
@@ -17,6 +18,14 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "nodemon": "^1.19.0"
+    "nodemon": "^1.19.0",
+    "pkg": "^4.3.8"
+  },
+  "pkg": {
+    "targets": [
+      "node10-macos-x64",
+      "node10-win-x64"
+    ],
+    "outPath": "dist/"
   }
 }
