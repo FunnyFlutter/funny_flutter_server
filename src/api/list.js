@@ -1,11 +1,11 @@
 const dataMap = {
-  
+
 };
 
-module.exports = function(request, response) {
+module.exports = function (request, response) {
   if (request.method === 'GET') {
-    const email = request.query.email;
-    const data = dataMap[email];
+    const userKey = request.query.userKey;
+    const data = dataMap[userKey];
     if (data) {
       response.json({
         error: "",
@@ -14,19 +14,19 @@ module.exports = function(request, response) {
       return
     }
     response.json({
-      error: `参数错误,${email} 不存在对应的数据`,
+      error: `参数错误,${userKey} 不存在对应的数据`,
       data: [],
     });
   } else if (request.method === 'POST') {
-    const email = request.body.email;
-    if (!email) {
+    const userKey = request.body.userKey;
+    if (!userKey) {
       response.json({
         error: `参数错误，email 不应为空`,
         data: [],
-      });       
-      return; 
+      });
+      return;
     }
-    dataMap[email] = {
+    dataMap[userKey] = {
       data: request.body.data,
       timestamp: request.body.timestamp,
     }
