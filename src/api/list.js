@@ -5,23 +5,16 @@ const dataMap = {
 module.exports = function (request, response) {
   if (request.method === 'GET') {
     const userKey = request.query.userKey;
-    const data = dataMap[userKey];
-    if (data) {
-      response.json({
-        error: "",
-        data: data,
-      });
-      return
-    }
+    const data = dataMap[userKey] || { data: [], timestamp: 0 };
     response.json({
-      error: `参数错误,${userKey} 不存在对应的数据`,
-      data: [],
+      error: "",
+      data: data,
     });
   } else if (request.method === 'POST') {
     const userKey = request.body.userKey;
     if (!userKey) {
       response.json({
-        error: `参数错误，email 不应为空`,
+        error: `userKey 不应为空`,
         data: [],
       });
       return;
