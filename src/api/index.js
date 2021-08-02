@@ -1,6 +1,6 @@
-module.exports = function(request, response) {
+module.exports = function (request, response) {
   response.json({
     error: "",
-    data: "helo world!",
+    data: "hello world!",
   });
 }
